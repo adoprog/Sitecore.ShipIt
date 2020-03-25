@@ -90,7 +90,15 @@ namespace Sitecore.Ship.Infrastructure
 			{
 				var master = Sitecore.Configuration.Factory.GetDatabase(publishParameters.Source);
 				var targetDBs = publishParameters.Targets.Select(Sitecore.Configuration.Factory.GetDatabase).ToArray();
-				var languages = publishParameters.Languages.Select(LanguageManager.GetLanguage).ToArray();
+				Language[] languages;
+				if (publishParameters.Languages == null)
+				{
+					languages = LanguageManager.GetLanguages(master).ToArray();
+				}
+				else
+				{
+					languages = publishParameters.Languages.Select(LanguageManager.GetLanguage).ToArray();
+				}
 
 				publishType(master, targetDBs, languages);
 			}

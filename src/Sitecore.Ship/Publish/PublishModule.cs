@@ -57,7 +57,7 @@ namespace Sitecore.Ship.Publish
                     Mode = publishRequest.Mode,
                     Source = publishRequest.Source ?? "master",
                     Targets = publishRequest.Targets.CsvStringToStringArray(new[] {"web"}),
-                    Languages = publishRequest.Languages.CsvStringToStringArray(new[] {"en"}),
+                    Languages = publishRequest.Languages.CsvStringToStringArray(null),
                 };
 
             var now = DateTime.Now;

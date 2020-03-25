@@ -98,7 +98,7 @@ namespace Sitecore.Ship.AspNet.Publish
 					Mode = request.Url.PathAndQuery.Split(new[] {'/'}).Last(),
 					Source = request.Form["source"] ?? "master",
 					Targets = request.Form["targets"].CsvStringToStringArray(new[] { "web" }),
-					Languages = request.Form["languages"].CsvStringToStringArray(new[] { "en" })
+					Languages = request.Form["languages"].CsvStringToStringArray(null)
 				};
 
 			return publishRequest;
