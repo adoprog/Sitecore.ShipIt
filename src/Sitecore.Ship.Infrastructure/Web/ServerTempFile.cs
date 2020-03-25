@@ -10,7 +10,7 @@ namespace Sitecore.Ship.Infrastructure.Web
         {
             get
             {
-                return HttpContext.Current.Server.MapPath(Sitecore.IO.TempFolder.GetFilename(Guid.NewGuid() + ".update"));
+                return Sitecore.IO.FileUtil.MapPath(Sitecore.IO.TempFolder.GetFilename(Guid.NewGuid() + ".update"));
             }
         }
     }
